@@ -9,31 +9,31 @@
 SELECT payment,
        round (sum(total),2) as total_sales
 FROM sales_data
-group by payment
-order by total_sales ;
+GROUP BY payment
+ORDER BY total_sales ;
 -----------------------What is the average unit price for each product?
 
 SELECT product_line,
-     round (avg(unit_price),2) as avg_unit_price
-from sales_data
-group by product_line;
+     round (avg(unit_price),2) AS avg_unit_price
+FROM sales_data
+GROUP BY product_line;
 
 
 ---- ---------- Calculate the product with the highest sales total  
 
-select product_line as products,
+SELECT product_line AS products,
 	round(sum(total), 2) as sales_total 
 FROM Sales_data
-group by product_line
-order by sales_total desc;
+GROUP BY product_line
+ORDER BY sales_total DESC;
 
 -----Calculate total sales by product category 
 
-select product_line as products,
+SELECT product_line as products,
 	   Round(sum(total),2)  as total_sales 
 FROM Sales_data
-group by products
-order by total_sales;
+GROUP BY products
+ORDER BY total_sales;
 
 ---- ---Show the distinct retail warehouse we have in our dataset
 
@@ -44,10 +44,10 @@ WHERE Client_type = 'retail';
 ---  Rank product line order by quantity
 
 SELECT product_line, 
-	sum(quantity) as total_quantity
+	sum(quantity) AS total_quantity
 FROM sales_data
-group by product_line
-order by total_quantity desc;
+GROUP BY product_line
+ORDER BY total_quantity DESC;
 
 
 ---- ------Show the highest sales by Client type------------------------------------------- 
@@ -61,10 +61,10 @@ ORDER BY total_price_sold desc;
 
 SELECT DISTINCT date, client_type, unit_price, product_line,
 quantity, round((unit_price* quantity),2) as total_price
-from sales_data
-group by date
-order by total_price desc
-limit  2;
+FROM sales_data
+GROUP BY date
+ORDER BY total_price desc
+LIMIT  2;
 
 
 ---------------- -----------THE END ------------------------------------------
